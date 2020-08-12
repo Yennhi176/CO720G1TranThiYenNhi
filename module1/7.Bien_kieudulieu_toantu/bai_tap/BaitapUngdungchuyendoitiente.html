@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<form>
+    <label style="margin-left: 50px">Amount</label>
+    <label style="margin-left: 300px">From Currency</label>
+    <label style="margin-left: 350px">To Currency</label><br>
+    <input type="text" name="Amount" id="tien">
+    <select style="margin-left: 250px" name="FromCurrency" id="tienDoi">
+        <option value="VND">VietNam</option>
+        <option value="USD">USD</option>
+    </select>
+    <select style="margin-left: 370px" name="ToCurrency" id="tienDoiDuoc">
+        <option value="USD">USD</option>
+        <option value="VND">VietNam</option>
+    </select>
+    <input style="margin-left: 100px" type="button" value="Convert" onclick="chuyenDoiTienTe1()">
+</form>
+<p id="hienThi"></p>
+<script>
+    function chuyenDoiTienTe1() {
+        let tien = parseInt(document.getElementById("tien").value);
+        let tienDoi = document.getElementById("tienDoi").value;
+        let tienDoiDuoc  = document.getElementById("tienDoiDuoc").value;
+        let ketQua=0;
+        if ((tienDoi == "USD") && (tienDoiDuoc == "VND")) {
+           ketQua = tien * 23000;
+        }
+          else if ((tienDoi == "VND" ) && (tienDoiDuoc == "USD")){
+            ketQua = tien / 23000;
+          }
+         else {
+            ketQua = tien;
+        }
+         document.getElementById("hienThi").innerHTML= ketQua;
+    }
+
+
+</script>
+
+</body>
+</html>
