@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng vui </title>
+</head>
+<body>
+<h1 style="color: pink">Do you love me ? </h1>
+<input type="button" value="Yes" onclick="yes()">
+<input type="button" id="nope" value="No" onmouseover="NoHope()" style="position: absolute">
+<script>
+    function yes() {
+        alert("<3 :))");
+    }
+    function NoHope() {
+        let x=Math.round(Math.random()*window.innerWidth);
+        let y=Math.round(Math.random()*window.innerHeight);
+        document.getElementById("nope").style.left= x+'px';
+        document.getElementById("nope").style.top= y+'px';
+    }
+</script>
+</body>
+</html>

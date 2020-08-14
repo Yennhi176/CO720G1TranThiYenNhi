@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>máy tính đơn giản</title>
+</head>
+<body>
+<form>
+   <fieldset style="width: 200px ; margin-left: 550px">
+    <input type="text" id="windown" name="windown" value="" style="width: 300px ; height: 50px"><br><br>
+    <input type="button" value="1" onclick="number1()" style="width: 50px ; height: 50px">
+    <input type="button" value="2" onclick="number2()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="3" onclick="number3()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="+" onclick="add()" style="width: 50px ; height: 50px ; margin-left: 20px"><br><br>
+    <input type="button" value="4" onclick="number4()" style="width: 50px ; height: 50px">
+    <input type="button" value="5" onclick="number5()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="6" onclick="number6()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="-" onclick="sub()" style="width: 50px ; height: 50px ; margin-left: 20px"><br><br>
+    <input type="button" value="7" onclick="number7()" style="width: 50px ; height: 50px">
+    <input type="button" value="8" onclick="number8()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="9" onclick="number9()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="*" onclick="mul()" style="width: 50px ; height: 50px ; margin-left: 20px"><br><br>
+    <input type="button" value="C" onclick="clr()" style="width: 50px ; height: 50px">
+    <input type="button" value="0" onclick="number0()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="=" onclick="equ()" style="width: 50px ; height: 50px ; margin-left: 20px">
+    <input type="button" value="/" onclick="div()" style="width: 50px ; height: 50px ; margin-left: 20px">
+   </fieldset>
+</form>
+<script>
+    function number1() {
+        document.getElementById("windown").value +=1;
+    }
+    function number2() {
+        document.getElementById("windown").value +=2;
+    }
+    function number3() {
+        document.getElementById("windown").value +=3;
+    }
+    function number4() {
+        document.getElementById("windown").value +=4;
+    }
+    function number5() {
+        document.getElementById("windown").value +=5;
+    }
+    function number6() {
+        document.getElementById("windown").value +=6;
+    }
+    function number7() {
+        document.getElementById("windown").value +=7;
+    }
+    function number8() {
+        document.getElementById("windown").value +=8;
+    }
+    function number9() {
+        document.getElementById("windown").value +=9;
+    }
+    function clr() {
+        document.getElementById("windown").value ="";
+    }
+    function add() {
+        document.getElementById("windown").value +="+";
+    }
+    function sub() {
+        document.getElementById("windown").value +="-";
+    }
+    function mul() {
+        document.getElementById("windown").value +="*";
+    }
+    function div() {
+        document.getElementById("windown").value +="/";
+    }
+    function equ() {
+        let string = document.getElementById("windown").value;
+        result=eval(string);
+        document.getElementById("windown").value =result;
+    }
+</script>
+</body>
+</html>
