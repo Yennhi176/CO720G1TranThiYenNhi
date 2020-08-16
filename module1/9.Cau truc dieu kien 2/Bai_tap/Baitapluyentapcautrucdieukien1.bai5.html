@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+<script>
+    let diemBaiKiemTra = parseInt(prompt("Điểm Bài Kiểm Tra"));
+    let diemThiGiuaKy = parseInt(prompt("Điểm Thi Giữa Kỳ"));
+    let diemThiCuoiKy = parseInt(prompt("Điểm Thi Cuối Kỳ"));
+    let diemTrungBinh = (diemBaiKiemTra +diemThiGiuaKy +diemThiCuoiKy)/3;
+    if (diemTrungBinh>=75){
+        alert("Loại Giỏi");
+    }else if(diemTrungBinh>=60){
+        alert("Loại Khá");
+    }else if(diemTrungBinh>=45){
+        alert("Loại Trung Bình");
+    }else {
+        alert("Loại Yếu");
+    }
+</script>
+
+</body>
+</html>

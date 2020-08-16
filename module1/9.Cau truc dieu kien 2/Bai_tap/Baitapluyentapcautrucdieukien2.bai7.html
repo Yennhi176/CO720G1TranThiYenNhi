@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 7</title>
+</head>
+<body>
+<script>
+    let a = prompt("nhập a");
+    let b = prompt("nhập b");
+    let c = prompt("nhập c");
+    let deTa = b*b - 4*a*c;
+    if(deTa>0){
+        alert("phương trình có nghiệm x1:" + (-b-Math.sqrt(deTa)*2*a));
+        alert("phương trình có nghiệm x2:" +(-b+Math.sqrt(deTa)*2*a));
+    }else if(deTa==0){
+        alert("phương trình có 2 nghiệm x1=x2:" +  -b/2*a);
+    }else {
+        alert("phương trình vô nghiệm");
+    }
+
+
+
+</script>
+</body>
+</html>
