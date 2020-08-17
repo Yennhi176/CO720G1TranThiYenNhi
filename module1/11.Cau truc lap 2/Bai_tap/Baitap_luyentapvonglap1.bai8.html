@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 8</title>
+</head>
+<body>
+     <h2>Hãy thử đoán xem!</h2>
+     <button type="button" name="butt" onclick="gameDoanSo()" value="choi">Chơi/chơi lại</button>
+     <script>
+         function gameDoanSo() {
+             let min= parseFloat(prompt("khoảng đoán bắt đầu từ số"));
+             let max= parseFloat(prompt("khoảng đoán kết thúc với số"));
+             let random = min + Math.round(Math.random() * (max-min));
+             alert(random);
+             for(i=1;i<=3;i++){
+                 let soChon=prompt("nhập số");
+                 if(random==soChon){
+                     alert("Chúc mừng");
+                     break;
+                 }else if(random>soChon){
+                     alert("chọn số lớn hơn");
+                 }else {
+                     alert("chọn số bé hơn");
+                 }
+             }
+
+         }
+
+     </script>
+</body>
+</html>
