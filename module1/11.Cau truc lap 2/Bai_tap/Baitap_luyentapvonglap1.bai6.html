@@ -6,11 +6,17 @@
 </head>
 <body>
 <script>
-    let total=0;
-    for(i=0;i<=30;i++){
-        total=total+i*7;
+    let tong=0;
+    let count =0;
+    let N=0;
+    while (count<30){
+        if (N%7===0){
+            tong+=N;
+            count++
+        }
+        N++;
     }
-    alert(total);
+    alert("Tổng của 30 số đầu tiên chia hết cho 7 là :  "+tong)
 
 
 </script>

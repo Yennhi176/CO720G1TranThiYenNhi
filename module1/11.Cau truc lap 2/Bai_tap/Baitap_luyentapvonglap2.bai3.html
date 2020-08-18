@@ -6,6 +6,50 @@
 </head>
 <body>
 <script>
+    let tamGiac1=parseInt(prompt("Nhập độ rộng của hình tam giác 1"));
+    let hinh1="";
+    for(i=1;i<=tamGiac1;i++){
+        for(j=1;j<=i;j++){
+            hinh1 += "*";
+        }
+        hinh1= hinh1 +"</br>";
+    }
+    document.write(hinh1+"</br>");
+
+    let tamGiac2=parseInt(prompt("Nhập độ rộng của hình tam giác 2"));
+    let hinh2="";
+    for(i=1;i<=tamGiac2;i++){
+        for(j=0;j<=tamGiac2-i;j++){
+            hinh2 += "*";
+        }
+        hinh2= hinh2 +"</br>";
+    }
+    document.write(hinh2+"</br>");
+
+    let tamGiac3=parseInt(prompt("Nhập độ rộng của hình tam giác 3"));
+    let hinh3="";
+    for(i=1;i<=tamGiac3;i++){
+        for(let j=1;j<=tamGiac3-i;j++){
+                hinh3 +=" ";
+            }for (let k=1;k<=i;k++) {
+                hinh3+="*";
+        }
+        hinh3 +="<br>";
+    }
+    document.write("<pre>"+hinh3+"</pre>"+"<br>");
+
+    let tamGiac4=parseInt(prompt("Nhập độ rộng của hình tam giác 3"));
+    let hinh4="";
+    for(i=0;i<=tamGiac4;i++){
+        for(let j=0;j<=i;j++){
+            hinh4 +=" ";
+        }for (let k=1;k<=tamGiac4-i;k++) {
+            hinh4+="*";
+        }
+        hinh4 +="<br>";
+    }
+    document.write("<pre>"+hinh4+"</pre>");
+
 
 </script>
 </body>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+<script>
+    let soTien=parseFloat(prompt("nhập số tiền ban đầu"));
+    let n=parseFloat(prompt("nhập số tháng "));
+    let lai=parseFloat(prompt("nhập lãi"));
+    let soTienLai=soTien;
+    for(let i=1;i<=n;i++){
+        soTien=soTien+soTien*lai/100;
+    }
+    alert(soTien-soTienLai);
+
+</script>
+
+</body>
+</html>
