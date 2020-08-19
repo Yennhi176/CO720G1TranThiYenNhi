@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>từ điển</title>
+</head>
+<body>
+<script>
+    let a=prompt("nhập vị trí từ cần tìm kiếm");
+    let tA=["red","black","blue","green","orange","yellow"];
+    let tV=["màu đỏ","màu đen","xanh da trời","xanh lá cây","màu cam","màu vàng"];
+        n=false;
+    for(let i=0;i<tA.length;i++){
+        if(a==tA[i]){
+            alert(tV[i]);
+            n=true;
+            break;
+        }
+    }
+    if (!n){
+        alert("không tìm thấy");
+    }
+
+</script>
+</body>
+</html>
