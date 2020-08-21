@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 7</title>
+</head>
+<body>
+<script>
+    let array=new Array(10);
+    let v=parseInt(prompt("nhập v:"));
+    for(let i=0;i<array.length;i++) {
+        array[i] = parseInt(prompt("nhập các phần tử của mảng" + i + ":"));
+    }
+    for (let i=0;i<array.length;i++){
+        if (v===array[i]){
+            array.splice(i,1);
+        }
+    }
+    alert(array);
+</script>
+
+</body>
+</html>

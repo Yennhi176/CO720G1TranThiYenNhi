@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 8</title>
+</head>
+<body>
+<script>
+    let array=new Array(10);
+    for(let i=0;i<array.length;i++) {
+        array[i] = parseInt(prompt("nhập các phần tử của mảng" + i + ":"));
+    }
+    array.sort(function (a,b) {
+        return b-a;
+
+    });
+    document.write(array);
+
+</script>
+
+</body>
+</html>
