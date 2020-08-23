@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>bài 2</title>
+    <title>bài 3</title>
 </head>
 <body>
 <script>
     let n=parseInt(prompt("nhập độ dài của mảng"));
     let array=new Array(n);
+    let dem=0;
     for (let i=0;i<array.length;i++){
         array[i]=prompt("nhập các ký tự của mảng" + i + ":");
-        document.write(array[i] + "," );
+        if (array[i] >= 0 && array[i] <= 9){
+            dem += 1;
+        }
     }
-    array.reverse();
-    document.write( "</br>" + array.join(""));
+    document.write(dem);
+
+
 </script>
+
 </body>
 </html>

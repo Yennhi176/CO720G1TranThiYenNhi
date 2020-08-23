@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+<script>
+    let a=parseInt(prompt("nhập độ dài mảng 1"));
+    let b=parseInt(prompt("nhập độ dài mảng 2"));
+    let array1= new Array(a);
+    let array2= new Array(b);
+    let dem=0;
+    if(a != b){
+        alert("hai mảng không giống nhau");
+    }else {
+        for(let i=0;i<a;i++){
+            array1[i]=prompt("nhập phần tử mảng 1" + i);
+            array2[i]=prompt("nhập phần tử mảng 2" + i);
+            if(array1[i] == array2[i]){
+                dem ++;
+            }
+        }
+        if(dem == a){
+            alert("hai mảng giống nhau");
+        }else {
+            alert("hai mảng không giống nhau");
+        }
+    }
+</script>
+
+</body>
+</html>
