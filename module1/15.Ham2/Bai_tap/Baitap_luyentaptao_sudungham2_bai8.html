@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 8</title>
+</head>
+<body>
+<script>
+    let n=parseInt(prompt("nhap do dai "));
+    let array=new Array(n);
+    for(let i=0;i<array.length;i++){
+        array[i]=parseInt(prompt("nhap phan tu" +(i+1)))
+    }
+    function changeArray(array) {
+        for(let i=0;i<(array.length)/2;i++){
+            let b= array[i];
+            array[i]=array[array.length-1-i];
+            array[array.length-1-i]=b
+        }
+        return array
+    }
+    changeArray(array);
+    document.write(array)
+</script>
+
+
+
+</body>
+</html>

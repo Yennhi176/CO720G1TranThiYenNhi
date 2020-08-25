@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+<script>
+    let ngoiSao=[ "Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+    let chomSao=["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Major","Leo"];
+    function kiemTra(thamSo){
+        for (let i=0;i<ngoiSao.length;i++){
+            if(thamSo==ngoiSao[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
+    let ten=prompt("nhập tên ngôi sao");
+    let kiemTraTen=kiemTra(ten);
+    if(kiemTraTen !=-1){
+        alert("ngôi sao:" + ngoiSao[kiemTraTen] + "chòm sao tương ứng là:" + chomSao[kiemTraTen]);
+    }else {
+        alert("không tìm thấy ngôi sao");
+    }
+
+
+</script>
+
+</body>
+</html>

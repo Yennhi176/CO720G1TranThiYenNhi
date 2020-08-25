@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 9</title>
+</head>
+<body>
+<script>
+    let n=parseInt(prompt("Nhập độ dài mảng"));
+    let x=new Array(n);
+    for (let i=0;i<x.length;i++){
+        x[i]=prompt("Nhập Phần tử của mảng");
+    }
+    let timKiem=prompt("Nhập Phần tử cần tìm");
+    function timKiemSo(array,n) {
+        let dem = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (n == array[i]) {
+                dem++
+            }
+        }
+        if (dem > 0) {
+            return "số lần xuất hiện " + n + " là " + dem;
+        } else {
+            return -1
+        }
+    }
+    document.write(timKiemSo(x,timKiem))
+</script>
+</body>
+</html>
