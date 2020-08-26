@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200px" height="100px" style="border:1px solid #000000;"></canvas></body>
+<script>
+    class Rectangle {
+        constructor(chieuDai,chieuRong) {
+            this.chieuDai=chieuDai;
+            this.chieuRong=chieuRong;
+        }
+        getRectangle() {
+            return this.chieuDai + this.chieuRong;
+        }
+        getChuvi(){
+            return (this.chieuDai + this.chieuRong)*2
+        }
+        getDientich(){
+            return this.chieuDai*this.chieuRong
+        }
+        getVehcn(){
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.fillStyle="red";
+            ctx.fillRect(0,0,this.chieuDai,this.chieuRong);
+        }
+    }
+    let chieuDaiHcn=parseInt(prompt("nhập chiều dài hcn:"));
+    let chieuRongHcn=parseInt(prompt("nhập chiều rộng hcn"));
+     let hcn=new Rectangle(chieuDaiHcn,chieuRongHcn);
+     document.write("chu vi hcn:" + hcn.getChuvi() + "diện tích hcn:" + hcn.getDientich());
+    hcn.getVehcn()
+
+</script>
+</html>

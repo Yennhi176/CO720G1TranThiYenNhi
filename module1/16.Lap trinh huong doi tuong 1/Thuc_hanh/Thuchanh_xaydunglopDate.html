@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp date</title>
+</head>
+<body>
+<script>
+    class Date {
+        constructor(ngay, thang, nam) {
+            this.ngay = ngay;
+            this.thang = thang;
+            this.nam = nam;
+        }
+        getngay() {
+            return this.ngay;
+        }
+        setngay(ngay){
+            this.ngay=ngay;
+        }
+        getthang(){
+            return this.thang;
+        }
+        setthang(thang){
+            this.thang=thang;
+        }
+        getnam(){
+            return this.nam;
+        }
+        setnam(nam){
+            this.thang=nam;
+        }
+    }
+    let date=new Date(2,2,2007);
+    alert(date.getngay() + "/" + date.getthang() + "/" + date.getnam());
+    let date2=new Date(17,6,2000);
+    alert(date2.getngay() + "/" + date2.getthang() + "/" + date2.getnam());
+
+
+</script>
+</body>
+</html>

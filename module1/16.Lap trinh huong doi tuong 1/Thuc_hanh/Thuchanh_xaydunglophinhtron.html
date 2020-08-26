@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp hình tròn</title>
+</head>
+<body>
+<script>
+    class Circle{
+        constructor(banKinh) {
+            this.banKinh=banKinh;
+        }
+        getCircle(){
+            return this.banKinh;
+        }
+        getdienTich(){
+            return Math.PI*this.banKinh*this.banKinh;
+        }
+    }
+    let banKinhVongTron=new Circle(2);
+    document.write("bán kính:" + banKinhVongTron.getCircle() + "diện tích:" + banKinhVongTron.getdienTich());
+</script>
+
+</body>
+</html>
