@@ -15,8 +15,8 @@
     let typeCustomer = "gold";
     let typeRoom = "vip";
     let discount = 20;
-    let quantityincluded = 10;
-    let rendays = 5;
+    let quantityIncluded = 10;
+    let renDays = 5;
     let totalPay;
     let choose = parseInt(prompt("1. Hiển thị thông tin khách hàng." + "\n" +
         "2.Chỉnh sửa thông tin khách hàng." + "\n" +
@@ -32,8 +32,8 @@
               "Loại khách hàng:"+typeCustomer+"\n"+
               "Loại phòng:"+typeRoom+"\n"+
               "Gỉam giá:"+discount+"\n"+
-              "Số lượng đi kèm:"+quantityincluded+"\n"+
-              "Số ngày:"+rendays);
+              "Số lượng đi kèm:"+quantityIncluded+"\n"+
+              "Số ngày:"+renDays);
         }
         break;
         case 2:{
@@ -94,10 +94,19 @@
             }else if(rendays>2){
                 temp+=10;
             }
-            alert("Total pay:"+(money*rendays-temp));
+            let tempt =0;
+            if (typeCustomer=="Diamond") {
+                tempt += 15;
+            }else if (typeCustomer=="Platium"){
+                tempt +=10;
+            }else if (typeCustomer=="Gold"){
+                tempt +=5;
+            }else if (typeCustomer=="Silver"){
+                tempt +=2;
+            }
+            alert("Total pay:"+(money*rendays-temp-tempt));
             break;
         }
-
     }
 
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    class DienThoai {
+        constructor(pin, ten) {
+            this.ten = ten;
+            this.pin = pin;
+            this.vungLuuTinSoanThao = "";
+            this.vungLuuTinDaGui = [];
+            this.vungLuuTinDen = [];
+            this.trangThai = true;
+        }
+        getTrangThai() {
+            return this.trangThai;
+        }
+        batVaTat() {
+            if (this.trangThai) {
+                this.trangThai = false
+            } else {
+                this.trangThai = true
+            }
+        }
+        sac() {
+            if (this.pin < 10) {
+                this.pin = 100;
+            }
+        }
+        soanTin(text) {
+            if (this.getTrangThai()) {
+                this.vungLuuTinSoanThao = text;
+                this.pin--;
+            } else {
+                alert("Bật điện thoại đi bạn");
+                this.batVaTat();
+            }
+        }
+        guiTinNhan(dienThoai) {
+            dienThoai.vungLuuTinDen.push(this.ten + ": " + this.vungLuuTinSoanThao);
+            this.vungLuuTinDaGui.push(this.vungLuuTinSoanThao);
+            this.vungLuuTinSoanThao = [];
+            this.pin--;
+        }
+        hienThiTinDen() {
+            alert(this.vungLuuTinDen)
+            this.pin--;
+        }
+        hienThiTinDaGui() {
+            alert(this.vungLuuTinDaGui);
+            this.pin--;
+        }
+    }
+    let samSung = new DienThoai(100, "samsung");
+    let nokia = new DienThoai(100, "nokia");
+    // samSung.soanTin("Xin chào Nokia");
+    // samSung.guiTinNhan(nokia);
+    //
+    // nokia.hienThiTinDen();
+    //
+    // nokia.soanTin("Chào sam sung");
+    // nokia.guiTinNhan(samSung);
+    // samSung.hienThiTinDen()
+    let iphone = new DienThoai(100, "iphone");
+    nokia.soanTin("Xin chào iphone mình là nokia121");
+    nokia.guiTinNhan(iphone);
+    samSung.soanTin("Xin chào iphone mình là samsung G8");
+    samSung.guiTinNhan(iphone);
+    iphone.hienThiTinDen();
+</script>
+</body>
+</html>
