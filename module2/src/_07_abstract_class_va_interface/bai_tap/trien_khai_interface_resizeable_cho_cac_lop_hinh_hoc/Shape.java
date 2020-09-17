@@ -1,4 +1,4 @@
-package _07_abstract_class_va_interface.bai_tap.trien_khai_interface_cororable_cho_cac_lop_hinh_hoc;
+package _07_abstract_class_va_interface.bai_tap.trien_khai_interface_resizeable_cho_cac_lop_hinh_hoc;
 
 public abstract class Shape {
     private String color = "green";
@@ -35,4 +35,5 @@ public abstract class Shape {
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
     }
+
 }
