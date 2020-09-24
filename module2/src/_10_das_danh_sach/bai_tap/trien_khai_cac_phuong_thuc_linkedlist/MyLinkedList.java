@@ -1,6 +1,8 @@
 package _10_das_danh_sach.bai_tap.trien_khai_cac_phuong_thuc_linkedlist;
 
 public class MyLinkedList<E> {
+    public int size;
+
     private class Node{
         private Node next;
         private Object data;
@@ -44,7 +46,6 @@ public class MyLinkedList<E> {
     public void add(int index,E element){
         Node temp = head;
         Node holder;
-//        cho con trỏ chạy đến vị trí index -1
         for(int i=0;i<index-1 && temp.next !=null;i++){
             temp = temp.next;
         }

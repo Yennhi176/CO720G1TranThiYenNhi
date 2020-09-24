@@ -39,5 +39,10 @@ public class MyLinkedListTest {
         myLinkedList.addFirst(student2);
         myLinkedList.addLast(student3);
         myLinkedList.add(2,student4);
+//        for(int i=0;i<myLinkedList.size();i++){
+//            Student student = (Student) myLinkedList.get(i);
+//            System.out.println(student.getName());
+//        }
+
     }
 }
