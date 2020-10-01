@@ -17,9 +17,10 @@ public class InsertionSort {
     public static void main(String[] args) {
         int [] list={2,1,5,4,7,9,8};
        insertionSort(list);
-       for (int e: list){
-           System.out.print(e + " ");
-       }
+//       for (int e: list){
+//           System.out.print(e + " ");
+//       }
+        System.out.println(Arrays.toString(list));
 
     }
 }
