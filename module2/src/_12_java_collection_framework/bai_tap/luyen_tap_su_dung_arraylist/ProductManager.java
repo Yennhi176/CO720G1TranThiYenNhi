@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ProductManager {
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Product> listProduct = new ArrayList<Product>();
+    private static ArrayList<Product> listProduct = new ArrayList<Product>();
 
 
     public static void main(String[] args) {
@@ -83,7 +83,8 @@ public class ProductManager {
 
         Product product = new Product(tenSP, id, giaSP);
         listProduct.add(product);
-        System.out.println(listProduct);
+
+        FileIO.writeToFileCSV(listProduct);
         System.out.println("hoàn thành!!!.....");
     }
 
