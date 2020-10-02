@@ -7,6 +7,12 @@ public class Student {
 
     public Student() {
     }
+    public Student(String ten, int id, String gioiTinh) {
+        this.ten = ten;
+        this.id = id;
+        this.gioiTinh = gioiTinh;
+    }
+
 
     public String getTen() {
         return ten;
@@ -29,12 +35,6 @@ public class Student {
     }
 
     public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh = gioiTinh;
-    }
-
-    public Student(String ten, int id, String gioiTinh) {
-        this.ten = ten;
-        this.id = id;
         this.gioiTinh = gioiTinh;
     }
 
