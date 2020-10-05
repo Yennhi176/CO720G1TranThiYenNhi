@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main implements Serializable {
+public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static List<SanPham> listSp = new ArrayList<>();
     private static final String PATH_FILE = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\module2\\src\\_17_io_binary_file\\bai_tap\\quan_ly_sp_luu_ra_file_nhi_phan\\sanpham.dat";

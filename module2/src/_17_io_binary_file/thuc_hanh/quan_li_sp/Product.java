@@ -1,6 +1,8 @@
 package _17_io_binary_file.thuc_hanh.quan_li_sp;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String codeProduct;
     private String nameProduct;
     private String delayProduct;
