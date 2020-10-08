@@ -1,4 +1,8 @@
 package Commons;
 
-public class GenderException {
+public class GenderException extends Exception {
+    public GenderException(String msg){
+        super(msg);
+    }
+
 }

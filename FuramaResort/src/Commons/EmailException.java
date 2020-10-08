@@ -1,4 +1,7 @@
 package Commons;
 
-public class EmailException {
+public class EmailException extends Exception {
+    public EmailException(String msg){
+        super(msg);
+    }
 }

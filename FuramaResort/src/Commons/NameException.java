@@ -1,4 +1,7 @@
 package Commons;
 
-public class NameException {
+public class NameException extends Exception {
+    public NameException(String msg) {
+        super(msg);
+    }
 }

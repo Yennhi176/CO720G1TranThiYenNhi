@@ -73,14 +73,12 @@ public abstract class Services {
 
     @Override
     public String toString() {
-        return "Services{" +
-                "id='" + id + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", areaOfUse=" + areaOfUse +
-                ", rentCost=" + rentCost +
-                ", numberOfPeople=" + numberOfPeople +
-                ", rentType='" + rentType + '\'' +
-                '}';
+        return "Id : " + id + "\n" +
+                "ServiceName : " + serviceName + "\n" +
+                "AreaOfUse :" + areaOfUse + "\n" +
+                "RentCost :" + rentCost + "\n" +
+                "NumberOfPeople :" + numberOfPeople + "\n" +
+                "RentType : " + rentType + "\n" ;
     }
     public abstract void showInFor();
 }

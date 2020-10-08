@@ -1,22 +1,22 @@
 package Models;
 
 public class Room extends Services {
-    private ExtraService extraService;
+    private ExtraService serviceGoWith;
 
     public Room() {
     }
 
-    public Room(String id, String serviceName, double areaOfUse, double rentCost, int numberOfPeople, String rentType, ExtraService extraService) {
+    public Room(String id, String serviceName, double areaOfUse, double rentCost, int numberOfPeople, String rentType, ExtraService serviceGoWith) {
         super(id, serviceName, areaOfUse, rentCost, numberOfPeople, rentType);
-        this.extraService = extraService;
+        this.serviceGoWith = serviceGoWith;
     }
 
-    public ExtraService getExtraService() {
-        return extraService;
+    public ExtraService getServiceGoWith() {
+        return serviceGoWith;
     }
 
-    public void setExtraService(ExtraService extraService) {
-        this.extraService = extraService;
+    public void setServiceGoWith(ExtraService serviceGoWith) {
+        this.serviceGoWith = serviceGoWith;
     }
 
     @Override
@@ -26,8 +26,7 @@ public class Room extends Services {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "extraService=" + extraService +
-                '}'+super.toString();
+        return super.toString()+
+                "ServiceGoWith : " + serviceGoWith + "\n";
     }
 }
