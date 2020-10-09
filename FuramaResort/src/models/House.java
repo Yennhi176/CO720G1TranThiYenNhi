@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class House extends Services{
     // properties:

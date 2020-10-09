@@ -1,4 +1,4 @@
-package Commons;
+package commons;
 
 public class NameException extends Exception {
     public NameException(String msg) {

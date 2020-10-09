@@ -1,13 +1,10 @@
-package Controllers;
+package controllers;
 
 
-import Commons.*;
-import Models.*;
+import commons.*;
+import models.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,19 +21,21 @@ public class MainController {
     private static List<House> listHouse = new ArrayList<>();
     private static List<Room> listRoom = new ArrayList<>();
     private static List<Customer> listCustomer = new ArrayList<>();
+    private static Map<String,Employee> listMap = new TreeMap<>();
     private static final String COMA = ",";
     private static final String PATH_FILE_VILLA = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\villa.csv";
     private static final String PATH_FILE_HOUSE = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\house.csv";
     private static final String PATH_FILE_ROOM = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\room.csv";
     private static final String PATH_FILE_CUSTOMER = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\customer.csv";
     private static final String PATH_FILE_BOOKING = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\booking.csv";
+    private static final String PATH_FILE_EMPLOYEE = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\data\\employee.csv";
 
     public static void main(String[] args) {
         displayMenu();
     }
 
     private static void displayMenu() {
-        int choose = 0;
+        int choose;
         do {
             System.out.println("1.\t Add New Services\n" +
                     "2.\tShow Services\n" +
@@ -232,49 +231,94 @@ public class MainController {
      * END CUSTOMER
      */
 
-    private static void showInformationOfEmployee() {
-
-    }
 
     private static void addNewBooking() {
+        listCustomer = new ArrayList<>();
         showInformationOfCustomer();
         System.out.println("Vui lòng chọn khách hàng: ");
         choose = Integer.parseInt(scanner.nextLine());
-        System.out.println("1.\tBooking Villa\n" +
-                "2.\tBooking House\n" +
-                "3.\tBooking Room\n" +
-                "4.\tBack to menu\n" +
-                "5.\tExit");
-        System.out.println("nhập số (1-4): ");
-        int choose1 = Integer.parseInt(scanner.nextLine());
-        switch (choose1) {
-            case 1:
-                bookingVilla();
-                break;
-            case 2:
-                bookingHouse();
-                break;
-            case 3:
-                bookingRoom();
-                break;
-            case 4:
-                displayMenu();
-                break;
-            case 5:
-                System.exit(0);
-                break;
-            default:
-                System.out.println("nhập lại:");
-                break;
-        }
+        int choose;
+        do {
+            System.out.println("1.\tBooking Villa\n" +
+                    "2.\tBooking House\n" +
+                    "3.\tBooking Room\n" +
+                    "4.\tBack to menu\n" +
+                    "5.\tExit");
+            System.out.println("nhập số (1-5): ");
+            choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    bookingVilla();
+                    break;
+                case 2:
+                    bookingHouse();
+                    break;
+                case 3:
+                    bookingRoom();
+                    break;
+                case 4:
+                    displayMenu();
+                    break;
+                case 5:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("nhập lại:");
+                    break;
+            }
+        }while (choose >=1 && choose <=5);
     }
 
     private static void bookingRoom() {
         showAllRoom();
+        System.out.println("chọn Room: ");
+        int room = Integer.parseInt(scanner.nextLine());
+        listCustomer.get(choose - 1).setUserService(listRoom.get(room - 1));
+        String line;
+        line = listCustomer.get(choose - 1).getNameCustomer() + COMA +
+                listCustomer.get(choose - 1).getDayOfBirth() + COMA +
+                listCustomer.get(choose - 1).getGender() + COMA +
+                listCustomer.get(choose - 1).getIdCard() + COMA +
+                listCustomer.get(choose - 1).getPhoneNumber() + COMA +
+                listCustomer.get(choose - 1).getEmail() + COMA +
+                listCustomer.get(choose - 1).getTypeOfCustomer() + COMA +
+                listCustomer.get(choose - 1).getAddress() + COMA +
+                listCustomer.get(choose - 1).getUserService().getId() + COMA +
+                listCustomer.get(choose - 1).getUserService().getServiceName() + COMA +
+                listCustomer.get(choose - 1).getUserService().getAreaOfUse() + COMA +
+                listCustomer.get(choose - 1).getUserService().getRentCost() + COMA +
+                listCustomer.get(choose - 1).getUserService().getNumberOfPeople() + COMA +
+                listCustomer.get(choose - 1).getUserService().getRentType();
+        FileUtils.writeToCSV(line,PATH_FILE_BOOKING);
+        System.out.println("booking Room thành công!");
+        displayMenu();
     }
 
     private static void bookingHouse() {
         showAllHouse();
+        System.out.println("chọn House: ");
+        int house = Integer.parseInt(scanner.nextLine());
+        listCustomer.get(choose - 1).setUserService(listHouse.get(house - 1));
+        String line;
+
+        line = listCustomer.get(choose - 1).getNameCustomer() + COMA +
+                listCustomer.get(choose - 1).getDayOfBirth() + COMA +
+                listCustomer.get(choose - 1).getGender() + COMA +
+                listCustomer.get(choose - 1).getIdCard() + COMA +
+                listCustomer.get(choose - 1).getPhoneNumber() + COMA +
+                listCustomer.get(choose - 1).getEmail() + COMA +
+                listCustomer.get(choose - 1).getTypeOfCustomer() + COMA +
+                listCustomer.get(choose - 1).getAddress() + COMA +
+                listCustomer.get(choose - 1).getUserService().getId() + COMA +
+                listCustomer.get(choose - 1).getUserService().getServiceName() + COMA +
+                listCustomer.get(choose - 1).getUserService().getAreaOfUse() + COMA +
+                listCustomer.get(choose - 1).getUserService().getRentCost() + COMA +
+                listCustomer.get(choose - 1).getUserService().getNumberOfPeople() + COMA +
+                listCustomer.get(choose - 1).getUserService().getRentType();
+        FileUtils.writeToCSV(line,PATH_FILE_BOOKING);
+        System.err.println("booking House thành công!");
+        displayMenu();
+
     }
 
     private static void bookingVilla() {
@@ -299,76 +343,94 @@ public class MainController {
                 listCustomer.get(choose - 1).getUserService().getNumberOfPeople() + COMA +
                 listCustomer.get(choose - 1).getUserService().getRentType();
         FileUtils.writeToCSV(line, PATH_FILE_BOOKING);
+        System.err.println("booking Villa thành công!");
+        displayMenu();
     }
 
     /**
      * SERVICE
      */
     private static void showServices() {
-        System.out.println("1.\tShow all Villa\n" +
-                "2.\tShow all House\n" +
-                "3.\tShow all Room\n" +
-                "4.\tShow All Name Villa Not Duplicate\n" +
-                "5.\tShow All Name House Not Duplicate\n" +
-                "6.\tShow All Name Name Not Duplicate\n" +
-                "7.\tBack to menu\n" +
-                "8.\tExit\n");
-        System.out.println("Please input choose (1 - 5): ");
+        int choose;
+        do {
+            System.out.println("1.\tShow all Villa\n" +
+                    "2.\tShow all House\n" +
+                    "3.\tShow all Room\n" +
+                    "4.\tShow All Name Villa Not Duplicate\n" +
+                    "5.\tShow All Name House Not Duplicate\n" +
+                    "6.\tShow All Name Room Not Duplicate\n" +
+                    "7.\tBack to menu\n" +
+                    "8.\tExit\n");
+            System.out.println("Please input choose (1 - 5): ");
 
-        int choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
-            case 1:
-                showAllVilla();
-                break;
-            case 2:
-                showAllHouse();
-                break;
-            case 3:
-                showAllRoom();
-                break;
-            case 4:
-                displayMenu();
-                break;
-            case 5:
-                System.exit(0);
-                break;
-            default:
-                System.out.println("nhập lại: ");
-                break;
+             choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    showAllVilla();
+                    break;
+                case 2:
+                    showAllHouse();
+                    break;
+                case 3:
+                    showAllRoom();
+                    break;
+                case 4:
+                    showAllNameVillaNotDuplicate();
+                    break;
+                case 5:
+                    showAllNameHouseNotDuplicate();
+                    break;
+                case 6:
+                    showAllNameRoomNotDuplicate();
+                    break;
+                case 7:
+                    displayMenu();
+                    break;
+                case 8:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("nhập lại: ");
+                    break;
 
-        }
+            }
+        }while (choose >= 1 && choose <=8);
     }
 
+
     private static void addNewServices() {
-        System.out.println("\n1. add new Villa." +
-                "\n2. add new House." +
-                "\n3. add new Room." +
-                "\n4. back to menu." +
-                "\n4. Exit.");
-        System.out.println("chọn số (1 - 4): ");
+        int choose;
+        do {
+            System.out.println("\n1. add new Villa." +
+                    "\n2. add new House." +
+                    "\n3. add new Room." +
+                    "\n4. back to menu." +
+                    "\n4. Exit.");
+            System.out.println("chọn số (1 - 4): ");
 
-        int choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
-            case 1:
-                addNewVilla();
-                break;
-            case 2:
-                addNewHouse();
-                break;
-            case 3:
-                addNewRoom();
-                break;
-            case 4:
-                displayMenu();
-                break;
-            case 5:
-                System.exit(0);
-                break;
-            default:
-                System.out.println("nhập lại: ");
-                break;
+             choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    addNewVilla();
+                    break;
+                case 2:
+                    addNewHouse();
+                    break;
+                case 3:
+                    addNewRoom();
+                    break;
+                case 4:
+                    displayMenu();
+                    break;
+                case 5:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("nhập lại: ");
+                    break;
 
-        }
+            }
+        }while (choose >= 1 && choose <=4);
 
 
     }
@@ -476,6 +538,19 @@ public class MainController {
 
         }
     }
+
+    private static void showAllNameVillaNotDuplicate() {
+        showAllVilla();
+        Set<String> listSet = new TreeSet<>();
+      for (Villa villa: listVilla) {
+          listSet.add(villa.getServiceName());
+      }
+      for (String listString: listSet){
+          System.out.println(listString);
+      }
+    }
+
+
     /**
      * END VILLA
      */
@@ -520,12 +595,34 @@ public class MainController {
                 house.getStandardRoom() + COMA +
                 house.getOtherDescription() + COMA +
                 house.getNumberOfFloors();
-
         FileUtils.writeToCSV(line, PATH_FILE_HOUSE);
 
     }
 
-    private static void showAllHouse() {
+//    public static void readAllHouse(){
+//        List<String> listString = FileUtils.readObject(PATH_FILE_HOUSE);
+//
+//        for (String line : listString) {
+//            String[] split1 = line.split(",");
+//            if (split1.length != 1) {
+//                House house = new House(split1[0], split1[1], Double.parseDouble(split1[2]), Double.parseDouble(split1[3]),
+//                        Integer.parseInt(split1[4]), split1[5], split1[6], split1[7], Integer.parseInt(split1[8]));
+//                listHouse.add(house);
+//                /*System.out.println(index++ + "\n" + house);*/
+//            }
+//        }
+//    }
+
+//    private static void showAllHouse() {
+//        readAllHouse();
+//        int index = 1;
+//        for (House house : listHouse){
+//            System.out.println(index++ + ". " + house);
+//        }
+//    }
+
+
+    private static void showAllHouse(){
         List<String> listString = FileUtils.readObject(PATH_FILE_HOUSE);
         int index = 1;
         for (String line : listString) {
@@ -536,6 +633,22 @@ public class MainController {
                 listHouse.add(house);
                 System.out.println(index++ + "\n" + house);
             }
+        }
+
+    }
+
+    private static void showAllNameHouseNotDuplicate() {
+
+        showAllHouse();
+
+        Set<String> listSet = new TreeSet<>();
+
+        for (House house : listHouse){
+            listSet.add(house.getServiceName());
+        }
+
+        for (String str : listSet) {
+            System.out.println(str);
         }
     }
 
@@ -598,7 +711,42 @@ public class MainController {
 
 
     }
+
+    private static void showAllNameRoomNotDuplicate() {
+        showAllRoom();
+        Set<String> listSet = new TreeSet<>();
+        for (Room room: listRoom){
+            listSet.add(room.getServiceName());
+        }
+        for (String listString: listSet){
+            System.out.println(listString);
+        }
+    }
     /**
      * END ROOM
+     */
+
+    /**
+     * EMPLOYEE
+     */
+    private static void showInformationOfEmployee() {
+        List<String> listEmployee = FileUtils.readObject(PATH_FILE_EMPLOYEE);
+        for (String line: listEmployee){
+            String[] split = line.split(",");
+            if(split.length != 1){
+                Employee employee = new Employee(Integer.parseInt(split[0]),split[1],Integer.parseInt(split[2]),split[3]);
+                listMap.put(split[0],employee);
+            }
+        }
+
+        for (String list: listMap.keySet()){
+            System.out.println(list + " " + listMap.get(list));
+        }
+
+
+    }
+
+    /**
+     * END EMPLOYEE
      */
 }

@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 public class Room extends Services {
     private ExtraService serviceGoWith;
