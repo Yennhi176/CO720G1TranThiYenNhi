@@ -22,6 +22,7 @@ public class MainController {
     private static List<Room> listRoom = new ArrayList<>();
     private static List<Customer> listCustomer = new ArrayList<>();
     private static Map<String,Employee> listMap = new TreeMap<>();
+    private static Queue<Customer> listQueue = new LinkedList<>();
     private static final String COMA = ",";
     private static final String PATH_FILE_VILLA = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\villa.csv";
     private static final String PATH_FILE_HOUSE = "D:\\WorkSpace\\CodeGym\\CO720G1TranThiYenNhi\\FuramaResort\\src\\Data\\house.csv";
@@ -43,7 +44,9 @@ public class MainController {
                     "4.\tShow Information of Customer\n" +
                     "5.\tAdd New Booking\n" +
                     "6.\tShow Information of Employee\n" +
-                    "7.\tExit\n");
+                    "7.\tBuy Movie Tickets\n" +
+                    "8.\tProfile Search\n" +
+                    "9.\tExit\n");
             System.out.println("chọn số:");
             choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
@@ -66,14 +69,72 @@ public class MainController {
                     showInformationOfEmployee();
                     break;
                 case 7:
+                    buyMovieTickets();
+                    break;
+                case 8:
+                    FilingCabinets.employeeProfileSearch();
+                    break;
+                case 9:
                     System.exit(0);
                 default:
                     System.out.println("nhập lại: ");
                     displayMenu();
                     break;
             }
-        } while (choose >= 1 && choose <= 7);
+        } while (choose >= 1 && choose <= 9);
 
+    }
+
+    private static void buyMovieTickets() {
+        int choose;
+        do {
+            System.out.println("1.\tBuy Ticket\n" +
+                               "2.\tShow Purchased List\n" +
+                               "3.\tBack to menu\n" +
+                               "4.\tExit\n");
+            System.out.println("nhập số từ (1-4)");
+            choose = Integer.parseInt(scanner.nextLine());
+            switch (choose){
+                case 1:
+                    buyTicket();
+                    break;
+                case 2:
+                    showPurchasedList();
+                    break;
+                case 3:
+                    displayMenu();
+                    break;
+                case 4:
+                    System.exit(0);
+                default:
+                    System.out.println("nhập lại: ");
+                    displayMenu();
+                    break;
+            }
+        }while (choose >= 1 && choose <= 4);
+    }
+
+    private static void showPurchasedList() {
+        int size = listQueue.size();
+        if (size == 0){
+            System.err.println("chưa có khách hàng nào");
+        }
+        for (int i = 0; i < size; i++){
+            System.out.println(listQueue.poll().getNameCustomer());
+        }
+
+    }
+
+    private static void buyTicket() {
+        listCustomer = new ArrayList<>();
+        showInformationOfCustomer();
+        try {
+            System.out.println("vui lòng chọn khách hàng: ");
+            int chooseCustomer = Integer.parseInt(scanner.nextLine());
+            listQueue.add(listCustomer.get(chooseCustomer - 1));
+        }catch (IndexOutOfBoundsException e) {
+            System.err.println("Vui lòng chọn trong danh sách:");
+        }
     }
 
     /**
@@ -734,7 +795,7 @@ public class MainController {
         for (String line: listEmployee){
             String[] split = line.split(",");
             if(split.length != 1){
-                Employee employee = new Employee(Integer.parseInt(split[0]),split[1],Integer.parseInt(split[2]),split[3]);
+                Employee employee = new Employee(split[0],split[1],Integer.parseInt(split[2]),split[3]);
                 listMap.put(split[0],employee);
             }
         }
